@@ -7,7 +7,7 @@ db.experiences.insertMany([
     'location': 'Barcelona',
     'cost': 20,
     'name': 'Sagrada Família',
-    'category': ['guided-tour', 'art', 'history'],
+    'category': ['tour', 'art', 'history'],
     'description': 'This is where to begin your adventure through Barcelona and the dreamlike works of Antoni Gaud\xed.\n\nHis minor basilica is a project of incredible scale and ambition that is still only around three quarters complete more than a 140 years after Gaud\xed first became involved.\n\nWhen its spires are finished it will be the tallest church building in the world, and hardly resembles any religious structure you\u2019ll have seen in your life.\n\nThe Sagrada Fam\xedlia combines several architectural styles including Catalan Modernism, Art Nouveau and Spanish Late-Gothic, but Gaud\xed\u2019s masterpiece defies these kinds of definitions when you look up open-mouthed at the ceiling of the nave.\n\nTicket price includes fast track entrance and a guided tour by one of our experts.',
     'includes': ['Tour guide', 'Fast track entrance ticket to Sagrada Familia', 'Audio guide'],
     'disable-days': [0, 1, 5, 6]
@@ -16,7 +16,7 @@ db.experiences.insertMany([
     'location': 'Barcelona',
     'cost': 30,
     'name': 'Camp Nou Experience: F.C. Barcelona Museum and Tour',
-    'category': ['guided-tour', 'sport'],
+    'category': ['tour', 'sport'],
     'description': 'In the western Les Corts neighbourhood is the 99,000-seater stadium that has been the home ground of FC Barcelona since 1957.\n\nIt\u2019s one of Europe\u2019s football cathedrals and even if you have no affinity for the team you have to visit Camp Nou to appreciate the dizzying scale of the arena.\n\nAnd if you are a fan you\u2019ll be in heaven, touring the stadium and browsing the memorabilia of one of the world\u2019s most prestigious teams at the museum.\n\nThe stadium tour is unavailable on or just before match days.',
     'includes': ['Museum entrance fee', 'Camp Nou interactive visit', 'Tour guide', 'Audio guide'],
     'disable-days': [6, 0]

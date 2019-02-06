@@ -20,6 +20,14 @@ const createRouter = function(collection){
     .then((docs) => res.json(docs))
   })
 
+  router.get('/category/:category', (req, res) => {
+    const category = req.params.category
+    collection
+    .find({category: category})
+    .toArray()
+    .then((docs) => res.json(docs))
+  })
+
   return router
 }
 
