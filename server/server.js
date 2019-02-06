@@ -23,6 +23,10 @@ MongoClient.connect('mongodb://localhost:27017', (err, client) => {
   const experienceRouter = createRouter(experiences)
   app.use('/api/experiences', experienceRouter)
 
+  const basket = db.collection('basket')
+  const basketRouter = createRouter(basket)
+  app.use('/api/basket', basketRouter)
+
   app.listen(3000, function(){
     console.log(`app listening on port ${this.address().port}`);
   })

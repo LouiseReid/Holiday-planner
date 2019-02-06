@@ -20,6 +20,14 @@ const createRouter = function(collection){
     .then((docs) => res.json(docs))
   })
 
+  router.get('/location/:location', (req, res) => {
+    const location = req.params.location
+    collection
+    .find({location: location})
+    .toArray()
+    .then((docs) => res.json(docs))
+  })
+
   router.get('/category/:category', (req, res) => {
     const category = req.params.category
     collection
@@ -27,6 +35,28 @@ const createRouter = function(collection){
     .toArray()
     .then((docs) => res.json(docs))
   })
+
+  router.post('/', (req, res) => {
+    const newData = req.body;
+    collection
+    .findOne(newData, function(err, success){
+      if(err){
+        console.log(err);
+      }
+      else {
+        if(success == null){
+          collection
+          .insertOne(newData)
+          .then(() => {
+            collection
+            .find()
+            .toArray()
+            .then((docs) => res.json(docs));
+          });
+        }
+      }
+    })
+  });
 
   return router
 }
