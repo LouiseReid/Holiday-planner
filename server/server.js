@@ -5,7 +5,9 @@ const parser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router');
 const cors = require('cors');
+// const history = require('connect-history-api-fallback');
 
+// app.use(history())
 app.use(cors())
 app.use(parser.json())
 

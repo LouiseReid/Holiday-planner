@@ -8,7 +8,7 @@ export const routes = [
     component: ExperienceGrid
   },
   {
-    path: 'experience/:id',
+    path: '/experience/:id',
     name: 'experience',
     component: Experience
   }
