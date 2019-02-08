@@ -2,6 +2,11 @@
   <div class="container" v-if="experience">
     <h3>{{experience.name}}</h3>
     <p>{{experience.description}}</p>
+    <date-picker
+      :inline="true"
+      :disabledDates="disabledDates"
+      v-model="date"
+      />
     <form v-on:submit="submit" method="post">
       <button type="submit">Add to Basket</button>
     </form>
@@ -9,17 +14,27 @@
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker';
+
 export default {
   data(){
     return {
       id: this.$route.params.id,
-      experience: null
+      experience: null,
+      disabledDates: {
+        days: []
+      },
+      date: null
     }
+  },
+  components: {
+    'date-picker': Datepicker
   },
   mounted(){
     fetch('http://localhost:3000/api/experiences/' + this.$route.params.id)
     .then(res => res.json())
     .then(data => this.experience = data[0])
+    .then(experience => this.disabledDates.days = experience['disable-days'])
   },
   methods: {
     submit(e){
@@ -35,7 +50,8 @@ export default {
       return {
         'location': experience.location,
         'name': experience.name,
-        'cost': experience.cost
+        'cost': experience.cost,
+        'date': this.date
       }
     }
   }
