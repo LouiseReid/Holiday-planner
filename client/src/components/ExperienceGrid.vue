@@ -1,6 +1,10 @@
 <template lang="html">
   <div class="container">
-    <experience-card v-for="experience in experiences" :key="experience._id" :experience="experience"/>
+    <experience-card
+      v-for="experience in experiences"
+      :key="experience._id"
+      :experience="experience"
+    />
   </div>
 </template>
 

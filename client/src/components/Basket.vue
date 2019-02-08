@@ -1,13 +1,40 @@
 <template lang="html">
   <div class="">
     <h3>Basket</h3>
-
+    <basket-item
+      v-for="item in items"
+      :key="item._id"
+      :item="item"
+    />
+    <p>Total: £{{ total}}</p>
   </div>
 </template>
 
 <script>
+import BasketItem from './BasketItem.vue'
+
 export default {
-  name: 'basket'
+  name: 'basket',
+  data(){
+    return {
+      items: [],
+      total: 0
+    }
+  },
+  components: {
+    'basket-item': BasketItem
+  },
+  mounted(){
+    fetch('http://localhost:3000/api/basket')
+    .then(res => res.json())
+    .then(data => this.items = data)
+    .then(items => this.calcTotal(items))
+  },
+  methods: {
+    calcTotal(items){
+      items.forEach(item => this.total += item.cost)
+    }
+  }
 }
 </script>
 
