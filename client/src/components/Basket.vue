@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import BasketItem from './BasketItem.vue'
+import BasketItem from './BasketItem.vue';
+import { eventBus } from '../main.js';
 
 export default {
   name: 'basket',
@@ -29,6 +30,11 @@ export default {
     .then(res => res.json())
     .then(data => this.items = data)
     .then(items => this.calcTotal(items))
+
+    eventBus.$on('basket-updated', (data) => {
+      this.items.push(data)
+      this.calcTotal(this.items)
+    })
   },
   methods: {
     calcTotal(items){

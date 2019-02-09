@@ -15,6 +15,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker';
+import { eventBus } from '../main.js';
 
 export default {
   data(){
@@ -45,6 +46,7 @@ export default {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json'}
       })
+      .then( eventBus.$emit('basket-updated', data))
     },
     createBasketObject(experience){
       return {

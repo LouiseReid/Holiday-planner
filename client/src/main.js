@@ -7,6 +7,8 @@ import {routes} from './routes.js'
 Vue.use(VueRouter)
 Vue.use(moment);
 
+export const eventBus = new Vue()
+
 const router = new VueRouter({
   mode: 'history',
   routes

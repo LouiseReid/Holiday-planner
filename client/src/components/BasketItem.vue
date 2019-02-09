@@ -2,7 +2,8 @@
   <div class="basket-item">
     <h4>{{ item.location }}</h4>
     <p>{{ item.name }}</p>
-    <p>{{ item.cost | moment("dddd, MMMM Do YYYY, h:mm:ss a")}}</p>
+    <p>{{ item.date | moment("dddd, MMMM Do YYYY")}}</p>
+    <p>£{{ item.cost }}</p>
   </div>
 </template>
 
