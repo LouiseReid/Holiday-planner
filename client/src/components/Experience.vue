@@ -1,21 +1,33 @@
 <template lang="html">
-  <div class="container" v-if="experience">
+  <div class="container__outter" v-if="experience">
     <h3>{{experience.name}}</h3>
-    <p>{{experience.description}}</p>
-    <date-picker
+    Categories:<ul>
+      <li v-for="category in experience.categories"> {{ category }}</li>
+    </ul>
+    <div class="container__inner">
+      <p>{{experience.description}}</p>
+      <date-picker
       :inline="true"
       :disabledDates="disabledDates"
       v-model="date"
       />
+    </div>
+    Includes: <ul>
+      <li v-for="includes in experience.includes"> {{ includes }}</li>
+    </ul>
+
+    <p>Cost: £{{ experience.cost }}</p>
     <form v-on:submit="submit" method="post">
       <button type="submit">Add to Basket</button>
     </form>
+    <router-link :to="{ name: 'experience-grid'}">Return to results</router-link>
   </div>
 </template>
 
 <script>
 import Datepicker from 'vuejs-datepicker';
 import { eventBus } from '../main.js';
+import _ from 'lodash';
 
 export default {
   data(){
@@ -46,7 +58,7 @@ export default {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json'}
       })
-      .then( eventBus.$emit('basket-updated', data))
+      eventBus.$emit('basket-updated', true)
     },
     createBasketObject(experience){
       return {
@@ -61,9 +73,30 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.container {
+.container__outter {
   display: flex;
+  flex-direction: column;
   border: 1px solid black;
   width: 65vw
 }
+
+.container__inner {
+  display: flex;
+}
+
+p {
+  white-space: pre-line;
+}
+
+ul {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0
+}
+
+li:not(:first-child) {
+  margin-left: 10%
+}
+
 </style>

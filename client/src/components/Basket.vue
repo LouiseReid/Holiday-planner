@@ -6,7 +6,7 @@
       :key="item._id"
       :item="item"
     />
-    <p>Total: £{{ total}}</p>
+    <p>Total: £{{ total }}</p>
   </div>
 </template>
 
@@ -26,17 +26,27 @@ export default {
     'basket-item': BasketItem
   },
   mounted(){
-    fetch('http://localhost:3000/api/basket')
-    .then(res => res.json())
-    .then(data => this.items = data)
-    .then(items => this.calcTotal(items))
-
+    this.loadBasket()
     eventBus.$on('basket-updated', (data) => {
-      this.items.push(data)
-      this.calcTotal(this.items)
+      if (data) {
+        this.loadBasket()
+      }
     })
+
+    eventBus.$on('basket-updated-item-removed', (data) => {
+      if (data) {
+        this.loadBasket()
+      }
+    })
+
   },
   methods: {
+    loadBasket(){
+      fetch('http://localhost:3000/api/basket')
+      .then(res => res.json())
+      .then(data => this.items = data)
+      .then(items => this.calcTotal(items))
+    },
     calcTotal(items){
       items.forEach(item => this.total += item.cost)
     }
