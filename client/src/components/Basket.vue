@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div>
     <h3>Basket</h3>
     <basket-item
       v-for="item in items"
@@ -56,7 +56,7 @@ export default {
 
 <style lang="css" scoped>
 div {
-  width: 35vw
+  width: 35vw;
 }
 h3 {
   text-align: center;

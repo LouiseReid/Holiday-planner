@@ -23,7 +23,7 @@ export default {
       fetch('http://localhost:3000/api/basket/' + this.item._id, {
         method: 'DELETE'
       })
-      .then( eventBus.$emit('basket-updated-item-removed', true))
+      .then( data => eventBus.$emit('basket-updated-item-removed', true))
     }
   }
 }

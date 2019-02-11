@@ -12,8 +12,9 @@
       v-model="date"
       />
     </div>
-    Includes: <ul>
-      <li v-for="includes in experience.includes"> {{ includes }}</li>
+    Includes: <ul class="includes">
+      <li v-for="includes in experience.includes">
+        <span>&#10003;</span> {{ includes }}</li>
     </ul>
 
     <p>Cost: £{{ experience.cost }}</p>
@@ -58,7 +59,8 @@ export default {
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json'}
       })
-      eventBus.$emit('basket-updated', true)
+      .then(data => eventBus.$emit('basket-updated', true))
+
     },
     createBasketObject(experience){
       return {
@@ -97,6 +99,19 @@ ul {
 
 li:not(:first-child) {
   margin-left: 10%
+}
+
+.includes {
+  flex-direction: column;
+  list-style: none;
+}
+
+.includes li {
+  margin: 0
+}
+
+span {
+  color: #077412
 }
 
 </style>
