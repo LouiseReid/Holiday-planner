@@ -16,7 +16,7 @@ export default {
     briefDesc(string){
       return _.truncate(string, {
         length: 200,
-        separator: /,?\.* +/ 
+        separator: /,?\.* +/
       })
     }
   }
@@ -26,7 +26,6 @@ export default {
 <style lang="css" scoped>
 .experience-card {
   flex: 25%;
-  border: 1px solid red;
   padding: 0 10px;
   margin: 10px
 }

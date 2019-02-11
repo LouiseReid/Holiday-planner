@@ -18,12 +18,18 @@ export default {
   name: 'basket',
   data(){
     return {
-      items: [],
-      total: 0
+      items: []
     }
   },
   components: {
     'basket-item': BasketItem
+  },
+  computed: {
+    total(){
+      let total = 0;
+      this.items.forEach(item => total += item.cost);
+      return total
+    }
   },
   mounted(){
     this.loadBasket()
@@ -45,10 +51,6 @@ export default {
       fetch('http://localhost:3000/api/basket')
       .then(res => res.json())
       .then(data => this.items = data)
-      .then(items => this.calcTotal(items))
-    },
-    calcTotal(items){
-      items.forEach(item => this.total += item.cost)
     }
   }
 }

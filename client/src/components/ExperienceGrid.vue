@@ -23,7 +23,6 @@ export default {
 <style lang="css" scoped>
   .container {
     display: flex;
-    border: 1px solid black;
     width: 65vw
   }
 </style>

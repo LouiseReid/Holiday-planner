@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <h1>Holiday Builder</h1>
+    <img src="./assets/logo.png" alt="TravTrips logo">
     <div class="container">
       <router-view :experiences="experiences"></router-view>
       <basket></basket>
@@ -32,5 +32,9 @@ export default {
 <style lang="css" scoped>
 .container {
   display: flex;
+}
+
+img {
+  width: 15vw;
 }
 </style>
