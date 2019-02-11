@@ -47,7 +47,7 @@
     mounted(){
       fetch('http://localhost:3000/api/experiences/' + this.$route.params.id)
       .then(res => res.json())
-      .then(data => this.experience = data[0])
+      .then(data => this.experience = data)
       .then(experience => this.disabledDates.days = experience['disable-days'])
     },
     methods: {
@@ -78,10 +78,6 @@
 
   <style lang="css" scoped>
 
-  * {
-    font-family: 'PT Sans Narrow', sans-serif;
-  }
-
   .container__outter {
     display: flex;
     flex-direction: column;
@@ -105,7 +101,8 @@
     width: 50%;
     display: flex;
     justify-content: flex-start;
-    margin: 0
+    margin: 0;
+    list-style: circle
   }
 
   li:not(:first-child) {
@@ -124,6 +121,24 @@
 
   span {
     color: #077412
+  }
+
+  a {
+    color: #23b090;
+    display: block;
+    align-self: flex-end;
+    width: 80px;
+    text-align: center;
+    border-bottom:  1px solid #23b090;
+    padding: 5px;
+    text-decoration: none;
+    transition: all .5s
+  }
+
+  a:hover {
+    color: #ffffff;
+    background-color: #23b090;
+    transform: translateY(-2px);
   }
 
   </style>

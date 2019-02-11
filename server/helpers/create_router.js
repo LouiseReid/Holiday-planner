@@ -15,9 +15,8 @@ const createRouter = function(collection){
   router.get('/:id', (req, res) => {
     const id = req.params.id
     collection
-    .find({_id: ObjectId(id)})
-    .toArray()
-    .then((docs) => res.json(docs))
+    .findOne({_id: ObjectId(id)})
+    .then((doc) => res.json(doc))
   })
 
   router.get('/location/:location', (req, res) => {
@@ -47,12 +46,9 @@ const createRouter = function(collection){
         if(success == null){
           collection
           .insertOne(newData)
-          .then(() => {
-            collection
-            .find()
-            .toArray()
-            .then((docs) => res.json(docs));
-          });
+          .then((result) => {
+            res.json(result.ops[0]);
+          })
         }
       }
     })
@@ -62,11 +58,8 @@ const createRouter = function(collection){
     const id = req.params.id;
     collection
     .deleteOne({ _id: ObjectId(id) })
-    .then(() => {
-      collection
-      .find()
-      .toArray()
-      .then((docs) => res.json(docs));
+    .then(result => {
+      res.json(result);
     })
   });
 

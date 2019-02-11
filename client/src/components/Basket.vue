@@ -6,7 +6,8 @@
       :key="item._id"
       :item="item"
     />
-    <p>Total: £{{ total }}</p>
+    <p v-if="items.length > 0">Total: £{{ total }}</p>
+    <p class="basket-empty" v-else>Your basket it empty</p>
   </div>
 </template>
 
@@ -57,10 +58,21 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 div {
   width: 35vw;
 }
 h3 {
   text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.basket-empty {
+  font-style: italic;
+  font-weight: lighter;
+  color: #4d4d4d
 }
 </style>

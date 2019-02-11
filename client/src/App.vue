@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="">
+  <div id="app">
     <img src="./assets/logo.png" alt="TravTrips logo">
     <div class="container">
       <router-view :experiences="experiences"></router-view>
@@ -29,7 +29,12 @@ export default {
 }
 </script>
 
+
 <style lang="css" scoped>
+
+#app {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
 .container {
   display: flex;
 }
