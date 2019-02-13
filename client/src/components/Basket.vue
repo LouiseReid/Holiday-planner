@@ -16,6 +16,7 @@
 <script>
 import BasketItem from './BasketItem.vue';
 import { eventBus } from '../main.js';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'basket',
@@ -35,26 +36,27 @@ export default {
     }
   },
   mounted(){
-    this.loadBasket()
-    eventBus.$on('basket-updated', (data) => {
-      if (data) {
-        this.loadBasket()
-      }
-    })
-
-    eventBus.$on('basket-updated-item-removed', (data) => {
-      if (data) {
-        this.loadBasket()
-      }
-    })
+     this.getData().then(() => {
+       this.items = this.$store.state.basket
+     })
+    // this.loadBasket()
+    // eventBus.$on('basket-updated', (data) => {
+    //   if (data) {
+    //     this.loadBasket()
+    //   }
+    // })
+    //
+    // eventBus.$on('basket-updated-item-removed', (data) => {
+    //   if (data) {
+    //     this.loadBasket()
+    //   }
+    // })
 
   },
   methods: {
-    loadBasket(){
-      fetch('http://localhost:3000/api/basket')
-      .then(res => res.json())
-      .then(data => this.items = data)
-    }
+    ...mapActions([
+      'getData'
+    ])
   }
 }
 </script>
