@@ -18,10 +18,12 @@
       </ul>
 
       <p>Cost: £{{ experience.cost }}</p>
-      <form v-on:submit="submit" method="post">
-        <button type="submit">Add to Basket</button>
-      </form>
-      <router-link :to="{ name: 'experience-grid'}">Return to results</router-link>
+      <div class="btn-container">
+        <form v-on:submit="submit" method="post">
+          <button type="submit">Add to Basket</button>
+        </form>
+        <router-link :to="{ name: 'experience-grid'}">&larr; Return to results</router-link>
+      </div>
     </div>
   </template>
 
@@ -78,67 +80,84 @@
 
   <style lang="css" scoped>
 
-  .container__outter {
-    display: flex;
-    flex-direction: column;
-    width: 65vw;
-    margin: 0 20px;
-  }
+    .container__outter {
+      display: flex;
+      flex-direction: column;
+      width: 65vw;
+      margin: 0 20px;
+    }
 
-  .container__inner {
-    display: flex;
-  }
+    .container__inner {
+      display: flex;
+    }
 
-  h3 {
-    letter-spacing: 2px
-  }
+    .container__inner p {
+      padding-right: 10px;
+    }
 
-  p {
-    white-space: pre-line;
-  }
+    h3 {
+      letter-spacing: 2px
+    }
 
-  ul {
-    width: 50%;
-    display: flex;
-    justify-content: flex-start;
-    margin: 0;
-    list-style: circle
-  }
+    p {
+      white-space: pre-line;
+    }
 
-  li:not(:first-child) {
-    margin-left: 10%
-  }
+    ul {
+      width: 50%;
+      display: flex;
+      justify-content: flex-start;
+      margin: 0;
+      margin-top: 10px;
+      list-style: circle
+    }
 
-  .includes {
-    flex-direction: column;
-    list-style: none;
-    padding-left: 0;
-  }
+    li:not(:first-child) {
+      margin-left: 10%
+    }
 
-  .includes li {
-    margin: 0
-  }
+    .includes {
+      flex-direction: column;
+      list-style: none;
+      padding-left: 0;
+    }
 
-  span {
-    color: #077412
-  }
+    .includes li {
+      margin: 0
+    }
 
-  a {
-    color: #23b090;
-    display: block;
-    align-self: flex-end;
-    width: 80px;
-    text-align: center;
-    border-bottom:  1px solid #23b090;
-    padding: 5px;
-    text-decoration: none;
-    transition: all .5s
-  }
+    span {
+      color: #077412
+    }
 
-  a:hover {
-    color: #ffffff;
-    background-color: #23b090;
-    transform: translateY(-2px);
-  }
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+      border: none;
+      padding: 0;
+      font-family: 'PT Sans Narrow', sans-serif;
+      font-size: 15px;
+    }
+
+    button, a {
+      color: #23b090;
+      display: block;
+      align-self: flex-end;
+      width: 80px;
+      text-align: center;
+      border-bottom:  1px solid #23b090;
+      padding: 5px;
+      text-decoration: none;
+      transition: all .5s
+    }
+
+    button:hover, a:hover {
+      color: #ffffff;
+      background-color: #23b090;
+      transform: translateY(-2px);
+    }
 
   </style>

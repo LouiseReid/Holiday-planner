@@ -1,13 +1,15 @@
 <template lang="html">
-  <div>
+  <div class="container__outter">
     <h3>Basket</h3>
-    <basket-item
-      v-for="item in items"
-      :key="item._id"
-      :item="item"
-    />
+    <div class="container__inner">
+      <basket-item
+        v-for="item in items"
+        :key="item._id"
+        :item="item"
+      />
+    </div>
     <p v-if="items.length > 0">Total: £{{ total }}</p>
-    <p class="basket-empty" v-else>Your basket it empty</p>
+    <p class="basket-empty" v-else>Your basket is empty</p>
   </div>
 </template>
 
@@ -59,15 +61,34 @@ export default {
 
 <style lang="css" scoped>
 
-div {
-  width: 35vw;
+.container__outter {
+  width: 25vw;
+  height: 650px;
+  background-color: #fafafa;
+  transform: skewY(-2deg);
+  border: 1px solid #bff4e8;
+  padding-bottom: 20px;
 }
+
+.container__inner {
+  overflow-y: scroll;
+  height: 85%;
+  width: 95%;
+  background-color: #fafafa;
+  margin: 0 auto;
+  transform: skewY(2deg);
+}
+
 h3 {
   text-align: center;
+  letter-spacing: 1.5px;
+  transform: skewY(2deg);
 }
 
 p {
   text-align: center;
+  transform: skewY(2deg);
+  padding-bottom: 10px;
 }
 
 .basket-empty {

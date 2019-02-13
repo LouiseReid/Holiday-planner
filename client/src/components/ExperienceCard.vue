@@ -27,6 +27,7 @@ export default {
 
 .experience-card {
   flex: 25%;
+  height: 250px;
   padding: 10px 10px;
   margin: 10px;
   border: 2px solid #bff4e8;
