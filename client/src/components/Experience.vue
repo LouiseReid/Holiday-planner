@@ -29,7 +29,7 @@
 
   <script>
   import Datepicker from 'vuejs-datepicker';
-  import { eventBus } from '../main.js';
+  import { mapActions } from 'vuex';
   import _ from 'lodash';
 
   export default {
@@ -53,16 +53,12 @@
       .then(experience => this.disabledDates.days = experience['disable-days'])
     },
     methods: {
+      ...mapActions(['postData']),
       submit(e){
         e.preventDefault()
         let data = this.createBasketObject(this.experience)
         if(this.date){
-          fetch('http://localhost:3000/api/basket', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json'}
-          })
-          .then(data => eventBus.$emit('basket-updated', data))
+          this.postData(data)
         }
       },
       createBasketObject(experience){

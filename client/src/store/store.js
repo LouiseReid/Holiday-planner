@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
     SET_BASKET (state, data){
       state.basket = data
     },
-    addToBasket(state, data){
+    ADD_ITEM (state, data){
       state.basket.push(data)
     }
   },
@@ -24,8 +24,13 @@ export const store = new Vuex.Store({
       .then(res => res.json())
       .then(data => commit('SET_BASKET', data))
     },
-    postData( { commit, state } ){
-
+    postData( { commit }, payload ){
+      fetch('http://localhost:3000/api/basket', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json'}
+      })
+      .then(res => commit('ADD_ITEM', payload))
     }
   }
 })

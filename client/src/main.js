@@ -9,8 +9,6 @@ import { store } from './store/store';
 Vue.use(VueRouter)
 Vue.use(moment);
 
-export const eventBus = new Vue()
-
 const router = new VueRouter({
   mode: 'history',
   routes,

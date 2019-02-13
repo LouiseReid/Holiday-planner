@@ -30,26 +30,13 @@ export default {
       return total
     }
   },
-  mounted(){
-     this.getData()
-    // this.loadBasket()
-    // eventBus.$on('basket-updated', (data) => {
-    //   if (data) {
-    //     this.loadBasket()
-    //   }
-    // })
-    //
-    // eventBus.$on('basket-updated-item-removed', (data) => {
-    //   if (data) {
-    //     this.loadBasket()
-    //   }
-    // })
-
-  },
   methods: {
     ...mapActions([
       'getData'
     ])
+  },
+  mounted(){
+     this.getData()
   }
 }
 </script>
