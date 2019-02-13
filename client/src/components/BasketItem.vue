@@ -12,18 +12,16 @@
 </template>
 
 <script>
-import { eventBus } from '../main.js';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'basket-item',
   props: ['item'],
   methods: {
+    ...mapActions(['deleteData']),
     submit(e){
       e.preventDefault()
-      fetch('http://localhost:3000/api/basket/' + this.item._id, {
-        method: 'DELETE'
-      })
-      .then( data => eventBus.$emit('basket-updated-item-removed', data))
+      this.deleteData(this.item._id)
     }
   }
 }
