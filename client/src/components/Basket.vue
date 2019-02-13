@@ -3,42 +3,35 @@
     <h3>Basket</h3>
     <div class="container__inner">
       <basket-item
-        v-for="item in items"
+        v-for="item in basket"
         :key="item._id"
         :item="item"
       />
     </div>
-    <p v-if="items.length > 0">Total: £{{ total }}</p>
+    <p v-if="basket.length > 0">Total: £{{ total }}</p>
     <p class="basket-empty" v-else>Your basket is empty</p>
   </div>
 </template>
 
 <script>
 import BasketItem from './BasketItem.vue';
-import { eventBus } from '../main.js';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'basket',
-  data(){
-    return {
-      items: []
-    }
-  },
   components: {
     'basket-item': BasketItem
   },
   computed: {
+    ...mapState(['basket']),
     total(){
       let total = 0;
-      this.items.forEach(item => total += item.cost);
+      this.basket.forEach(item => total += item.cost);
       return total
     }
   },
   mounted(){
-     this.getData().then(() => {
-       this.items = this.$store.state.basket
-     })
+     this.getData()
     // this.loadBasket()
     // eventBus.$on('basket-updated', (data) => {
     //   if (data) {

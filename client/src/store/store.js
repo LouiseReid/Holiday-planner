@@ -7,16 +7,25 @@ export const store = new Vuex.Store({
   state: {
     basket: []
   },
+  getters: {
+    basket: state => state.basket
+  },
   mutations: {
-    setBasket(state, data){
+    SET_BASKET (state, data){
       state.basket = data
+    },
+    addToBasket(state, data){
+      state.basket.push(data)
     }
   },
   actions: {
     getData( { commit } ){
       fetch('http://localhost:3000/api/basket')
       .then(res => res.json())
-      .then(data => commit('setBasket', data))
+      .then(data => commit('SET_BASKET', data))
+    },
+    postData( { commit, state } ){
+
     }
   }
 })
