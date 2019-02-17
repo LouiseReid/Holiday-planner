@@ -8,6 +8,12 @@
     <input type="checkbox" id="tour" value="tour" v-model="checkedCategories">
     <label for="adventure">Adventure</label>
     <input type="checkbox" id="tour" value="adventure" v-model="checkedCategories">
+    <label for="art">Art</label>
+    <input type="checkbox" id="art" value="art" v-model="checkedCategories">
+    <label for="history">History</label>
+    <input type="checkbox" id="history" value="history" v-model="checkedCategories">
+    <label for="sport">History</label>
+    <input type="checkbox" id="sport" value="sport" v-model="checkedCategories">
 
     <p v-if="searchLocation === '' && checkedCategories.length === 0">All Experiences</p>
     <p v-else>Search Results</p>
@@ -52,7 +58,7 @@ export default {
             }
           })
         })
-        return experiences
+        return [...new Set(experiences)]
       } else if (this.searchLocation !== '' && this.checkedCategories.length > 0) {
         this.experiences.forEach(experience => {
           if(experience.location.indexOf(searchLocation) > -1){
@@ -63,7 +69,7 @@ export default {
             })
           }
         })
-        return experiences
+        return [...new Set(experiences)]
       } else {
         return this.experiences.filter(experience => {
           return experience.location.indexOf(searchLocation) > -1
