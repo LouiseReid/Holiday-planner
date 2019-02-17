@@ -9,7 +9,7 @@
     <label for="adventure">Adventure</label>
     <input type="checkbox" id="tour" value="adventure" v-model="checkedCategories">
 
-    <p v-if="searchLocation === ''">All Experiences</p>
+    <p v-if="searchLocation === '' && checkedCategories.length === 0">All Experiences</p>
     <p v-else>Search Results</p>
     <div class="container">
       <experience-card
@@ -39,10 +39,12 @@ export default {
   },
   computed: {
     searchedExperiences(){
+      let searchLocation = this.searchLocation.charAt(0).toUpperCase() + this.searchLocation.slice(1)
+      let experiences = []
+
       if(this.searchLocation === '' && this.checkedCategories.length === 0){
         return this.experiences
       } else if (this.searchLocation === '' && this.checkedCategories.length > 0 ) {
-        let experiences = []
         this.experiences.forEach(experience => {
           experience.categories.forEach(category => {
             if(this.checkedCategories.includes(category)){
@@ -51,9 +53,19 @@ export default {
           })
         })
         return experiences
+      } else if (this.searchLocation !== '' && this.checkedCategories.length > 0) {
+        this.experiences.forEach(experience => {
+          if(experience.location.indexOf(searchLocation) > -1){
+            experience.categories.forEach(category => {
+              if(this.checkedCategories.includes(category)){
+                experiences.push(experience)
+              }
+            })
+          }
+        })
+        return experiences
       } else {
         return this.experiences.filter(experience => {
-          let searchLocation = this.searchLocation.charAt(0).toUpperCase() + this.searchLocation.slice(1)
           return experience.location.indexOf(searchLocation) > -1
         })
       }
