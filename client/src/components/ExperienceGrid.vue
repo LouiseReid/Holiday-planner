@@ -32,7 +32,8 @@ export default {
         return this.experiences
       } else {
         return this.experiences.filter(experience => {
-          return experience.location.indexOf(this.search) > -1
+          let search = this.search.charAt(0).toUpperCase() + this.search.slice(1)
+          return experience.location.indexOf(search) > -1
         })
       }
     }
