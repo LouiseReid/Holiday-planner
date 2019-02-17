@@ -29,5 +29,14 @@ db.experiences.insertMany([
     'description': 'Depart Barcelona at 12:00, and journey along the Costa Brava for approximately 1 hour to reach the start point of your exciting kayak and snorkel adventure.\n\nUpon arrival at the beach, get outfitted with all the necessary equipment and listen to the instructions from your guide. Explore secluded beaches and rocky caves by kayak, and swim and snorkel amongst the native marine life. Encounter volcanic cliffs towering above the shimmering waters, brimming with fish, sea urchins, coral formations and more.\n\nAlong the way, enjoy a picnic lunch and complimentary water, and get plenty of free time to chill out on a white sand beach. Head back into the heart of Barcelona at the end of your 6-hour adventure, and enjoy a round of beer or sangria at a bar on arrival.',
     'includes': ['6-hour return day trip', 'Kayaking guide', 'Equipment (wetsuit, snorkel gear and kayak)', 'Return transfers from Barcelona', 'Packed picnic lunch and water', 'Drinks (beer or sangria) at a city centre bar on your return to Barcelona', 'Changing rooms, toilets and lockers available at the kayaking centre'],
     'disable-days': [0, 1, 3, 5]
+  },
+  {
+    'location': 'London',
+    'cost': 60,
+    'name': 'Buckingham Palace Tour Including Changing of the Guard Ceremony',
+    'categories': ['tour'],
+    'description': 'Delve into London’s rich royal heritage during a 2.5-hour visit to Buckingham Palace to see the Changing of the Guard Ceremony.\n\n Marvel at the traditional Changing of the Guard performance, which involves meticulously dressed soldiers marching to the rhythm of military drums. Then, enjoy an exclusive experience as you enter the opulent State Rooms of Buckingham Palace for an independent audio tour.\n\n See lavish chambers during a tour only available for two months of the year, and gain fascinating insight into the history of the British monarchy.',
+    'includes': ['2.5 hour Buckingham Palace Tour', 'Changing of the Guard ceremony', 'Tour host', 'Entry/Admission - Buckingham Palace', 'Headsets, when needed'],
+    'disable-days': [0, 1, 2]
   }
 ])

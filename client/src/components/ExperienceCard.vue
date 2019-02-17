@@ -26,7 +26,7 @@ export default {
 <style lang="css" scoped>
 
 .experience-card {
-  flex: 25%;
+  width: 27%;
   height: 250px;
   padding: 10px 10px;
   margin: 10px;
