@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="experience-card">
-    <h3>{{ experience.name }}</h3>
+    <h3>{{ experience.name }} - {{ experience.location }}</h3>
     <p>{{ experience.description | briefDesc }}</p>
     <router-link :to="{ name: 'experience', params: {id: experience._id} }">More Info &rarr;</router-link>
   </div>

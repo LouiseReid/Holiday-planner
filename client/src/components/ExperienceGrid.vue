@@ -1,6 +1,16 @@
 <template lang="html">
   <section>
-    <input type="text" v-model="search" placeholder="search for city...">
+    <label for="location-search">Where are you going?</label>
+    <input type="text" v-model="searchLocation" placeholder="search for city..." id="location-search" />
+
+    <p>What do you want to do?</p>
+    <label for="tour">Tour</label>
+    <input type="checkbox" id="tour" value="tour" v-model="checkedCategories">
+    <label for="adventure">Adventure</label>
+    <input type="checkbox" id="tour" value="adventure" v-model="checkedCategories">
+
+    <p v-if="searchLocation === ''">All Experiences</p>
+    <p v-else>Search Results</p>
     <div class="container">
       <experience-card
       v-for="experience in searchedExperiences"
@@ -19,7 +29,8 @@ export default {
   name: 'experience-grid',
   data(){
     return {
-      search: ''
+      searchLocation: '',
+      checkedCategories: []
     }
   },
   props: ['experiences'],
@@ -28,12 +39,22 @@ export default {
   },
   computed: {
     searchedExperiences(){
-      if(this.search === ''){
+      if(this.searchLocation === '' && this.checkedCategories.length === 0){
         return this.experiences
+      } else if (this.searchLocation === '' && this.checkedCategories.length > 0 ) {
+        let experiences = []
+        this.experiences.forEach(experience => {
+          experience.categories.forEach(category => {
+            if(this.checkedCategories.includes(category)){
+              experiences.push(experience)
+            }
+          })
+        })
+        return experiences
       } else {
         return this.experiences.filter(experience => {
-          let search = this.search.charAt(0).toUpperCase() + this.search.slice(1)
-          return experience.location.indexOf(search) > -1
+          let searchLocation = this.searchLocation.charAt(0).toUpperCase() + this.searchLocation.slice(1)
+          return experience.location.indexOf(searchLocation) > -1
         })
       }
     }
