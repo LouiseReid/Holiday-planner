@@ -12,7 +12,7 @@
     <input type="checkbox" id="art" value="art" v-model="checkedCategories">
     <label for="history">History</label>
     <input type="checkbox" id="history" value="history" v-model="checkedCategories">
-    <label for="sport">History</label>
+    <label for="sport">Sport</label>
     <input type="checkbox" id="sport" value="sport" v-model="checkedCategories">
 
     <p v-if="searchLocation === '' && checkedCategories.length === 0">All Experiences</p>
@@ -52,18 +52,16 @@ export default {
         return this.experiences
       } else if (this.searchLocation === '' && this.checkedCategories.length > 0 ) {
         this.experiences.forEach(experience => {
-          experience.categories.forEach(category => {
-            if(this.checkedCategories.includes(category)){
-              experiences.push(experience)
-            }
-          })
+          if(this.checkedCategories.every(category => experience.categories.includes(category))){
+            experiences.push(experience)
+          }
         })
         return [...new Set(experiences)]
       } else if (this.searchLocation !== '' && this.checkedCategories.length > 0) {
         this.experiences.forEach(experience => {
           if(experience.location.indexOf(searchLocation) > -1){
             experience.categories.forEach(category => {
-              if(this.checkedCategories.includes(category)){
+              if(this.checkedCategories.every(category => experience.categories.includes(category))){
                 experiences.push(experience)
               }
             })
