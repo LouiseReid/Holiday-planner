@@ -77,10 +77,14 @@
   <style lang="css" scoped>
 
     .container__outter {
+      background-color: rgba(255, 255, 255, 0.65);
       display: flex;
       flex-direction: column;
       width: 65vw;
       margin: 0 20px;
+      padding: 0 15px;
+      height: 95vh;
+      align-self: center
     }
 
     .container__inner {
@@ -140,11 +144,12 @@
 
     button, a {
       color: #23b090;
+      background-color: rgba(255, 255, 255, 0.95);
       display: block;
       align-self: flex-end;
       width: 80px;
       text-align: center;
-      border-bottom:  1px solid #23b090;
+      border:  1px solid #23b090;
       padding: 5px;
       text-decoration: none;
       transition: all .5s

@@ -44,12 +44,16 @@ export default {
 <style lang="css" scoped>
 
 .container__outter {
+  margin-top: 10px;
   width: 25vw;
-  height: 650px;
-  background-color: #fafafa;
+  height: 90vh;
+  background-color: rgba(255, 255, 255, 0.95);
   transform: skewY(-2deg);
   border: 1px solid #bff4e8;
   padding-bottom: 20px;
+  align-self: center;
+  position: sticky;
+  top: 0
 }
 
 .container__inner {

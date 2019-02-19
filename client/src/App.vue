@@ -1,9 +1,7 @@
 <template lang="html">
   <div id="app">
-    <div class="container">
-      <router-view :experiences="experiences"></router-view>
-      <basket></basket>
-    </div>
+    <router-view :experiences="experiences"></router-view>
+    <basket></basket>
   </div>
 </template>
 
@@ -29,15 +27,23 @@ export default {
 </script>
 
 
-<style lang="css" scoped>
+<style lang="css">
+
+body {
+  margin: 0;
+  padding: 0;
+}
 
 #app {
   font-family: 'PT Sans Narrow', sans-serif;
-}
-.container {
+  background: linear-gradient(rgba(191, 244, 232, 0.5),rgba(255, 255, 255, 0.7)), url('./assets/background.jpg');
+  background-size: cover;
   display: flex;
   justify-content: space-around;
+  height: 100vh;
+  overflow:scroll;
 }
+
 
 
 </style>

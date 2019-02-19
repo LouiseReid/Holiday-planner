@@ -38,5 +38,32 @@ db.experiences.insertMany([
     'description': 'Delve into London’s rich royal heritage during a 2.5-hour visit to Buckingham Palace to see the Changing of the Guard Ceremony.\n\n Marvel at the traditional Changing of the Guard performance, which involves meticulously dressed soldiers marching to the rhythm of military drums. Then, enjoy an exclusive experience as you enter the opulent State Rooms of Buckingham Palace for an independent audio tour.\n\n See lavish chambers during a tour only available for two months of the year, and gain fascinating insight into the history of the British monarchy.',
     'includes': ['2.5 hour Buckingham Palace Tour', 'Changing of the Guard ceremony', 'Tour host', 'Entry/Admission - Buckingham Palace', 'Headsets, when needed'],
     'disable-days': [0, 1, 2]
+  },
+  {
+    'location': 'London',
+    'cost': 35,
+    'name': 'London Eye',
+    'categories': ['adventure'],
+    'description': 'At a height of 135 m (443 ft), this is the tallest Ferris wheel in Europe and one of the tallest in the world. Ever since its completion in 1999, the Eye has provided one of the highest vantage points in London. On a clear day, you can see across London, with the Thames River, Big Ben, and Parliament sitting directly below you.\n\n Each of the 32 sealed, air-conditioned ovoid capsule can hold up to 25 passengers, though you can also reserve an entire capsule for yourself and your companions for an extra fee.\n\n Purchase your tickets online to save on the price of admission and to avoid waiting in line when you arrive. Try not to book too far ahead, though, because there\u2019s no guaranteeing the sun will shine on your chosen date. ',
+    'includes': ['London Eye admission ticket'],
+    'disable-days': []
+  },
+  {
+    'location': 'London',
+    'cost': 29,
+    'name': 'Madame Tussauds',
+    'categories': ['art'],
+    'description': 'Marvel at lifelike wax figures of the world\u2019s most famous actors and actresses, athletes, entertainers, and politicians at Madame Tussauds London. This is the original site of the museum that\u2019s become a franchise in nine other cities around the globe.\n\n Wax sculptor Marie Tussaud established the museum in 1884, and today it houses over 300 figures. The figures on display change frequently to keep up with the times, but you can expect to find sculptures of famous people from both the past and present. After viewing the exhibits, sit for a 4-D movie on a 360-degree screen, and then enter the Scream! house of horrors. Purchase your tickets online before you visit to reduce both the price of admission and your wait to enter. ',
+    'includes': ['London Eye admission ticket'],
+    'disable-days': []
+  },
+  {
+    'location': 'New York',
+    'cost': 50,
+    'name': 'NYC Liberty Cruise',
+    'categories': ['tour'],
+    'description': 'Don’t have a lot of time in New York City? Make the most of it with this 60-minute harbor cruise that gives you prime views of one of the most recognizable skylines in the world. Snap memorable shots of Midtown and Lower Manhattan, and sail within 100 feet of the Statue of Liberty. Learn fun facts about the iconic green-hued goddess as an informative guide brings the city’s sights and fascinating history to life.',
+    'includes': ['1-hour Sightseeing Cruise', 'Live narration by Circle Line’s world famous guides (in English)', 'Recorded narration in seven languages available via free app download', 'Free Wi-Fi on board'],
+    'disable-days': [6]
   }
 ])

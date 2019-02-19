@@ -26,10 +26,11 @@ export default {
 <style lang="css" scoped>
 
 .experience-card {
-  width: 27%;
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 28%;
   height: 250px;
   padding: 10px 10px;
-  margin: 10px;
+  margin: 10px 12px;
   border: 2px solid #bff4e8;
   border-radius: 5%;
   transition: all 0.2s
@@ -44,11 +45,7 @@ h3 {
   text-align: center;
 }
 
-p {
-  background-image: linear-gradient(0deg, rgba(1, 1, 1, 0.52) 10%,  #000000 );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 
 a {
   color: #23b090;
