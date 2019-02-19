@@ -1,6 +1,5 @@
 <template lang="html">
   <div id="app">
-    <img src="./assets/logo.png" alt="TravTrips logo">
     <div class="container">
       <router-view :experiences="experiences"></router-view>
       <basket></basket>
@@ -37,9 +36,8 @@ export default {
 }
 .container {
   display: flex;
+  justify-content: space-around;
 }
 
-img {
-  width: 15vw;
-}
+
 </style>

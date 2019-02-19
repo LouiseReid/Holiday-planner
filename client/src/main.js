@@ -5,6 +5,13 @@ import moment from 'vue-moment'
 import {routes} from './routes.js'
 import { store } from './store/store';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faSearch} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faSearch)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueRouter)
 Vue.use(moment);
