@@ -11,9 +11,6 @@ const cors = require('cors');
 app.use(cors())
 app.use(parser.json())
 
-const publicPath = path.join(__dirname, '../client');
-app.use(express.static(publicPath));
-
 
 MongoClient.connect('mongodb://localhost:27017', (err, client) => {
   if(err){
