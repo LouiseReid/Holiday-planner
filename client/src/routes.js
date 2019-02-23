@@ -10,6 +10,7 @@ export const routes = [
   {
     path: '/experience/:id',
     name: 'experience',
-    component: Experience
+    component: Experience,
+    props: true
   }
   ]

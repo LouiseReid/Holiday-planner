@@ -28,14 +28,15 @@
   </template>
 
   <script>
+  import EventService from '../services/EventService.js'
   import Datepicker from 'vuejs-datepicker';
   import { mapActions } from 'vuex';
   import _ from 'lodash';
 
   export default {
+    props: ['id'],
     data(){
       return {
-        id: this.$route.params.id,
         experience: null,
         disabledDates: {
           days: []
@@ -47,7 +48,7 @@
       'date-picker': Datepicker
     },
     mounted(){
-      fetch('http://localhost:3000/api/experiences/' + this.$route.params.id)
+      EventService.getExperience(this.id)
       .then(res => res.json())
       .then(data => this.experience = data)
       .then(experience => this.disabledDates.days = experience['disable-days'])

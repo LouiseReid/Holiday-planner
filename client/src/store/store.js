@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import EventService from '../services/EventService.js'
 
 Vue.use(Vuex)
 
@@ -24,23 +25,17 @@ export const store = new Vuex.Store({
   },
   actions: {
     getData( { commit } ) {
-      fetch('http://localhost:3000/api/basket')
+      EventService.getBasket()
       .then(res => res.json())
       .then(data => commit('SET_BASKET', data))
     },
     postData( { commit }, payload ) {
-      fetch('http://localhost:3000/api/basket', {
-        method: 'POST',
-        body: JSON.stringify(payload),
-        headers: { 'Content-Type': 'application/json'}
-      })
+      EventService.addToBasket(payload)
       .then(res => res.json())
       .then(res => commit('ADD_ITEM', res))
     },
     deleteData( { commit }, id ) {
-      fetch('http://localhost:3000/api/basket/' + id, {
-        method: 'DELETE'
-      })
+      EventService.removeFromBasket(id)
       .then(res => commit('DELETE_ITEM', id))
     }
   }
