@@ -18,7 +18,6 @@ export default {
   },
   mounted(){
     EventService.getExperiences()
-    .then(res => res.json())
     .then(data => this.experiences = data)
   },
   components: {

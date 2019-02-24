@@ -26,12 +26,10 @@ export const store = new Vuex.Store({
   actions: {
     getData( { commit } ) {
       EventService.getBasket()
-      .then(res => res.json())
       .then(data => commit('SET_BASKET', data))
     },
     postData( { commit }, payload ) {
       EventService.addToBasket(payload)
-      .then(res => res.json())
       .then(res => commit('ADD_ITEM', res))
     },
     deleteData( { commit }, id ) {

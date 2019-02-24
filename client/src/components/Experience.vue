@@ -49,7 +49,6 @@
     },
     mounted(){
       EventService.getExperience(this.id)
-      .then(res => res.json())
       .then(data => this.experience = data)
       .then(experience => this.disabledDates.days = experience['disable-days'])
     },
