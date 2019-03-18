@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import EventService from '../services/EventService.js'
+import ExperienceService from '../services/ExperienceService.js'
 
 Vue.use(Vuex)
 
@@ -25,15 +25,15 @@ export const store = new Vuex.Store({
   },
   actions: {
     getData( { commit } ) {
-      EventService.getBasket()
+      ExperienceService.getBasket()
       .then(data => commit('SET_BASKET', data))
     },
     postData( { commit }, payload ) {
-      EventService.addToBasket(payload)
+      ExperienceService.addToBasket(payload)
       .then(res => commit('ADD_ITEM', res))
     },
     deleteData( { commit }, id ) {
-      EventService.removeFromBasket(id)
+      ExperienceService.removeFromBasket(id)
       .then(res => commit('DELETE_ITEM', id))
     }
   }

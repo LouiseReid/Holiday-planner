@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import EventService from './services/EventService.js'
+import ExperienceService from './services/ExperienceService.js'
 import Basket from './components/Basket.vue'
 
 export default {
@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted(){
-    EventService.getExperiences()
+    ExperienceService.getExperiences()
     .then(data => this.experiences = data)
   },
   components: {

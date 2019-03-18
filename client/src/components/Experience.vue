@@ -28,7 +28,7 @@
   </template>
 
   <script>
-  import EventService from '../services/EventService.js'
+  import ExperienceService from '../services/ExperienceService.js'
   import Datepicker from 'vuejs-datepicker';
   import { mapActions } from 'vuex';
   import _ from 'lodash';
@@ -48,7 +48,7 @@
       'date-picker': Datepicker
     },
     mounted(){
-      EventService.getExperience(this.id)
+      ExperienceService.getExperience(this.id)
       .then(data => this.experience = data)
       .then(experience => this.disabledDates.days = experience['disable-days'])
     },
